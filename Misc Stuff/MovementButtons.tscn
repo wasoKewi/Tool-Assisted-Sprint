@@ -38,6 +38,13 @@ offset_bottom = 608.0
 text = "Jump
 "
 
+[node name="ConfirmP1" type="Button" parent="AspectRatioContainer/P1"]
+offset_left = 488.0
+offset_top = 544.0
+offset_right = 559.0
+offset_bottom = 608.0
+text = "Confirm"
+
 [node name="P2" type="Node" parent="AspectRatioContainer"]
 
 [node name="LeftP2" type="Button" parent="AspectRatioContainer/P2"]
@@ -62,6 +69,13 @@ offset_bottom = 608.0
 text = "Jump
 "
 
+[node name="ConfirmP2" type="Button" parent="AspectRatioContainer/P2"]
+offset_left = 592.0
+offset_top = 544.0
+offset_right = 663.0
+offset_bottom = 608.0
+text = "Confirm"
+
 [node name="Misc" type="Node" parent="AspectRatioContainer"]
 
 [node name="Menu" type="Button" parent="AspectRatioContainer/Misc"]
@@ -77,10 +91,13 @@ text = "Main Menu"
 [connection signal="button_up" from="AspectRatioContainer/P1/RightP1" to="." method="_on_right_p_1_button_up"]
 [connection signal="button_down" from="AspectRatioContainer/P1/JumpP1" to="." method="_on_jump_p_1_button_down"]
 [connection signal="button_up" from="AspectRatioContainer/P1/JumpP1" to="." method="_on_jump_p_1_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P1/ConfirmP1" to="." method="_on_confirm_p_1_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P1/ConfirmP1" to="." method="_on_confirm_p_1_button_up"]
 [connection signal="button_down" from="AspectRatioContainer/P2/LeftP2" to="." method="_on_left_p_2_button_down"]
 [connection signal="button_up" from="AspectRatioContainer/P2/LeftP2" to="." method="_on_left_p_2_button_up"]
 [connection signal="button_down" from="AspectRatioContainer/P2/RightP2" to="." method="_on_right_p_2_button_down"]
 [connection signal="button_up" from="AspectRatioContainer/P2/RightP2" to="." method="_on_right_p_2_button_up"]
 [connection signal="button_down" from="AspectRatioContainer/P2/JumpP2" to="." method="_on_jump_p_2_button_down"]
 [connection signal="button_up" from="AspectRatioContainer/P2/JumpP2" to="." method="_on_jump_p_2_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P2/ConfirmP2" to="." method="_on_confirm_p_2_button_down"]
 [connection signal="pressed" from="AspectRatioContainer/Misc/Menu" to="." method="_on_menu_pressed"]
