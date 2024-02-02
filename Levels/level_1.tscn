@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhg3fbf3ba74p"]
+
+[ext_resource type="PackedScene" uid="uid://bl1msn55eegl2" path="res://Player/Player.tscn" id="1_1u8qu"]
+[ext_resource type="PackedScene" uid="uid://bqegj0djfl787" path="res://Player/Player2.tscn" id="2_nhs5o"]
+[ext_resource type="PackedScene" uid="uid://bbw03ubenh2cq" path="res://Misc Stuff/MovementButtons.tscn" id="3_cglcl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyrgh"]
+size = Vector2(1152, 128)
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(576, 576)
+shape = SubResource("RectangleShape2D_uyrgh")
+
+[node name="Panel" type="Panel" parent="Floor"]
+offset_top = 512.0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("1_1u8qu")]
+position = Vector2(72, 480)
+
+[node name="Player2" type="Node" parent="."]
+
+[node name="Player2" parent="Player2" instance=ExtResource("2_nhs5o")]
+position = Vector2(128, 480)
+
+[node name="UI" parent="." instance=ExtResource("3_cglcl")]

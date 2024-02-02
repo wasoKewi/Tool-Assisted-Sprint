@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbw03ubenh2cq"]
+
+[ext_resource type="Script" path="res://Misc Stuff/MovementButtons.gd" id="1_15eyx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_15eyx")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="P1" type="Node" parent="AspectRatioContainer"]
+
+[node name="LeftP1" type="Button" parent="AspectRatioContainer/P1"]
+offset_left = 64.0
+offset_top = 544.0
+offset_right = 128.0
+offset_bottom = 608.0
+text = "Left"
+
+[node name="RightP1" type="Button" parent="AspectRatioContainer/P1"]
+offset_left = 136.0
+offset_top = 544.0
+offset_right = 200.0
+offset_bottom = 608.0
+text = "right"
+
+[node name="JumpP1" type="Button" parent="AspectRatioContainer/P1"]
+offset_left = 208.0
+offset_top = 544.0
+offset_right = 272.0
+offset_bottom = 608.0
+text = "Jump
+"
+
+[node name="P2" type="Node" parent="AspectRatioContainer"]
+
+[node name="LeftP2" type="Button" parent="AspectRatioContainer/P2"]
+offset_left = 952.0
+offset_top = 544.0
+offset_right = 1016.0
+offset_bottom = 608.0
+text = "Left"
+
+[node name="RightP2" type="Button" parent="AspectRatioContainer/P2"]
+offset_left = 1024.0
+offset_top = 544.0
+offset_right = 1088.0
+offset_bottom = 608.0
+text = "right"
+
+[node name="JumpP2" type="Button" parent="AspectRatioContainer/P2"]
+offset_left = 880.0
+offset_top = 544.0
+offset_right = 944.0
+offset_bottom = 608.0
+text = "Jump
+"
+
+[node name="Misc" type="Node" parent="AspectRatioContainer"]
+
+[node name="Menu" type="Button" parent="AspectRatioContainer/Misc"]
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 144.0
+offset_bottom = 79.0
+text = "Main Menu"
+
+[connection signal="button_down" from="AspectRatioContainer/P1/LeftP1" to="." method="_on_left_p_1_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P1/LeftP1" to="." method="_on_left_p_1_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P1/RightP1" to="." method="_on_right_p_1_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P1/RightP1" to="." method="_on_right_p_1_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P1/JumpP1" to="." method="_on_jump_p_1_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P1/JumpP1" to="." method="_on_jump_p_1_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P2/LeftP2" to="." method="_on_left_p_2_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P2/LeftP2" to="." method="_on_left_p_2_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P2/RightP2" to="." method="_on_right_p_2_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P2/RightP2" to="." method="_on_right_p_2_button_up"]
+[connection signal="button_down" from="AspectRatioContainer/P2/JumpP2" to="." method="_on_jump_p_2_button_down"]
+[connection signal="button_up" from="AspectRatioContainer/P2/JumpP2" to="." method="_on_jump_p_2_button_up"]
+[connection signal="pressed" from="AspectRatioContainer/Misc/Menu" to="." method="_on_menu_pressed"]

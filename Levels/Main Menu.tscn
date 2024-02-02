@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbps6pbyt8u8n"]
+
+[ext_resource type="Script" path="res://Levels/Main Menu.gd" id="1_58jje"]
+
+[node name="Base" type="Node2D"]
+script = ExtResource("1_58jje")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 448.0
+offset_right = 192.0
+offset_bottom = 576.0
+text = "Quit"
+
+[node name="Level 1" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 64.0
+offset_right = 640.0
+offset_bottom = 192.0
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 384.0
+text = "Level 2"
+
+[node name="Level 3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 448.0
+offset_right = 640.0
+offset_bottom = 576.0
+text = "Level 3"
+
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Control/Level 3" to="." method="_on_level_3_pressed"]
