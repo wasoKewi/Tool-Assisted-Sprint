@@ -12,8 +12,10 @@ var fullconf = false
 
 var turndone = false
 
-var framecount
+var framecount = 0
 var framelength = 10
+
+signal pausetoggle(value)
 
 func _process(delta):
 	framecount+=1
@@ -21,12 +23,12 @@ func _process(delta):
 	
 	if conf1 and conf2:
 		fullconf = true
-	
+		emit_signal("pausetoggle",fullconf)
 	
 	if turndone:
 		if framecount >= framelength:
 			fullconf = false
-			turndone = false
+			emit_signal("pausetoggle",fullconf)
 
 
 func _on_left_p_1_button_down():

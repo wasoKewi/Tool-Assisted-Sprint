@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhg3fbf3ba74p"]
+[gd_scene load_steps=6 format=3 uid="uid://dhg3fbf3ba74p"]
 
 [ext_resource type="PackedScene" uid="uid://bl1msn55eegl2" path="res://Player/Player.tscn" id="1_1u8qu"]
 [ext_resource type="PackedScene" uid="uid://bqegj0djfl787" path="res://Player/Player2.tscn" id="2_nhs5o"]
@@ -7,27 +7,44 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uyrgh"]
 size = Vector2(1152, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fmas"]
+size = Vector2(20, 647)
+
 [node name="Level 1" type="Node2D"]
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="UI" parent="." instance=ExtResource("3_cglcl")]
+process_mode = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+[node name="Players" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Player" type="Node2D" parent="Players"]
+
+[node name="Player" parent="Players/Player" instance=ExtResource("1_1u8qu")]
+position = Vector2(72, 480)
+
+[node name="Player2" type="Node2D" parent="Players"]
+
+[node name="Player2" parent="Players/Player2" instance=ExtResource("2_nhs5o")]
+position = Vector2(128, 480)
+
+[node name="Collisions" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Collisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Floor"]
 position = Vector2(576, 576)
 shape = SubResource("RectangleShape2D_uyrgh")
 
-[node name="Panel" type="Panel" parent="Floor"]
+[node name="Panel" type="Panel" parent="Collisions/Floor"]
 offset_top = 512.0
 offset_right = 1152.0
 offset_bottom = 640.0
 
-[node name="Player" type="Node2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-10, 314)
+shape = SubResource("RectangleShape2D_5fmas")
 
-[node name="Player" parent="Player" instance=ExtResource("1_1u8qu")]
-position = Vector2(72, 480)
-
-[node name="Player2" type="Node" parent="."]
-
-[node name="Player2" parent="Player2" instance=ExtResource("2_nhs5o")]
-position = Vector2(128, 480)
-
-[node name="UI" parent="." instance=ExtResource("3_cglcl")]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(1162, 314)
+shape = SubResource("RectangleShape2D_5fmas")
