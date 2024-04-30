@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhg3fbf3ba74p"]
+[gd_scene load_steps=7 format=3 uid="uid://dhg3fbf3ba74p"]
 
 [ext_resource type="PackedScene" uid="uid://bl1msn55eegl2" path="res://Player/Player.tscn" id="1_1u8qu"]
 [ext_resource type="PackedScene" uid="uid://bqegj0djfl787" path="res://Player/Player2.tscn" id="2_nhs5o"]
 [ext_resource type="PackedScene" uid="uid://bbw03ubenh2cq" path="res://Misc Stuff/MovementButtons.tscn" id="3_cglcl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyrgh"]
-size = Vector2(1152, 128)
+[ext_resource type="PackedScene" uid="uid://bfkqm4qqy05hi" path="res://Misc Stuff/winbox.tscn" id="4_gy8xj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fmas"]
 size = Vector2(20, 647)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyrgh"]
+size = Vector2(1152, 128)
 
 [node name="Level 1" type="Node2D"]
 
@@ -26,11 +27,22 @@ position = Vector2(72, 480)
 [node name="Player2" type="Node2D" parent="Players"]
 
 [node name="Player2" parent="Players/Player2" instance=ExtResource("2_nhs5o")]
-position = Vector2(128, 480)
+position = Vector2(109, 480)
 
 [node name="Collisions" type="Node" parent="."]
 
+[node name="Walls" type="StaticBody2D" parent="Collisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Walls"]
+position = Vector2(-10, 314)
+shape = SubResource("RectangleShape2D_5fmas")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/Walls"]
+position = Vector2(1162, 314)
+shape = SubResource("RectangleShape2D_5fmas")
+
 [node name="Floor" type="StaticBody2D" parent="Collisions"]
+z_index = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/Floor"]
 position = Vector2(576, 576)
@@ -40,11 +52,7 @@ shape = SubResource("RectangleShape2D_uyrgh")
 offset_top = 512.0
 offset_right = 1152.0
 offset_bottom = 640.0
+mouse_filter = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(-10, 314)
-shape = SubResource("RectangleShape2D_5fmas")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(1162, 314)
-shape = SubResource("RectangleShape2D_5fmas")
+[node name="Winbox" parent="Collisions" instance=ExtResource("4_gy8xj")]
+position = Vector2(1099, 363)

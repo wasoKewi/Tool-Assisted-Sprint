@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbps6pbyt8u8n"]
+[gd_scene load_steps=3 format=3 uid="uid://cbps6pbyt8u8n"]
 
 [ext_resource type="Script" path="res://Levels/Main Menu.gd" id="1_58jje"]
+[ext_resource type="Texture2D" uid="uid://coydg6xb5bpwr" path="res://Misc Stuff/IMG_2061.png-1-1.webp" id="2_pxvvh"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_58jje")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 313)
+scale = Vector2(2.05277, 1)
+texture = ExtResource("2_pxvvh")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
