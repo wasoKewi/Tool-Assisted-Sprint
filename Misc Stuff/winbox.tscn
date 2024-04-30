@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfkqm4qqy05hi"]
+
+[ext_resource type="Script" path="res://Misc Stuff/winbox.gd" id="1_u8nkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkima"]
+size = Vector2(102, 296)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_u8nkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fkima")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -53.0
+offset_top = -148.0
+offset_right = 51.0
+offset_bottom = 148.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 104.0
+offset_bottom = 295.0
+color = Color(0, 1, 0, 0.439216)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

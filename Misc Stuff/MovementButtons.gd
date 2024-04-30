@@ -6,14 +6,29 @@ var xdir2 = 0
 var jump1 = false
 var jump2 = false
 
-func _on_right_p_1_button_up():
-	xdir1 = 0
+var conf1 = false
+var conf2 = false
+var fullconf = false
 
-func _on_left_p_1_button_up():
-	xdir1 = 0
+var turndone = false
 
-func _on_jump_p_1_button_up():
-	jump1 = false
+var framecount = 0
+var framelength = 10
+
+
+
+func _process(delta):
+	framecount+=1
+	
+	
+	if conf1 and conf2:
+		fullconf = true
+
+	
+	if turndone:
+		if framecount >= framelength:
+			fullconf = false
+
 
 
 func _on_left_p_1_button_down():
@@ -25,15 +40,8 @@ func _on_right_p_1_button_down():
 func _on_jump_p_1_button_down():
 	jump1 = true
 
-
-func _on_left_p_2_button_up():
-	xdir2 = 0
-
-func _on_right_p_2_button_up():
-	xdir2 = 0
-	
-func _on_jump_p_2_button_up():
-	jump2 = false
+func _on_confirm_p_1_button_down():
+	conf1 = true
 
 
 func _on_left_p_2_button_down():
@@ -45,6 +53,21 @@ func _on_right_p_2_button_down():
 func _on_jump_p_2_button_down():
 	jump2 = true
 
+func _on_confirm_p_2_button_down():
+	conf2 = true
+
+
+
 
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://Levels/Main Menu.tscn")
+
+
+
+
+
+
+
+
+
+
